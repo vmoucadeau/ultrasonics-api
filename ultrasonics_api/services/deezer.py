@@ -69,10 +69,10 @@ def api_deezer_auth_request():
     from uuid import uuid4
 
     base_url = "https://connect.deezer.com/oauth/auth.php/?"
-
+    print(os.environ.get('API_ENDPOINT'))
     params = {
         "app_id": os.environ.get('DEEZER_APP_ID'),
-        "redirect_uri": "https://ultrasonics-api.herokuapp.com/api/deezer/auth",
+        "redirect_uri": os.environ.get('API_ENDPOINT') + "/deezer/auth",
         "state": str(uuid4()),
         "perms": ",".join([
             "basic_access",
