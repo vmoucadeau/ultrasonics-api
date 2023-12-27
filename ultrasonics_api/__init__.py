@@ -35,7 +35,6 @@ def create_app():
     app.register_blueprint(deezer.bp)
     app.register_blueprint(lastfm.bp)
     app.register_blueprint(soundcloud.bp)
-    print(os.environ.get('DEEZER_APP_ID'))
     # Add auth middleware if requested
     @app.before_request
     def check_api_auth():
